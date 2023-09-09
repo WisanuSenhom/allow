@@ -1,6 +1,6 @@
 async function getProfile() {
      const profile = await liff.getProfile();
-     const xurl += `https://script.google.com/macros/s/AKfycbyBn9QqVFkeNxr8dkjkwAPQIkRt7OhbqjXP8LxVc1lOsLZA_5Kn3K7JKfHitdCPYBzVgw/exec?user=${profile.userId}&name=${profile.displayName}`
+     const xurl = `https://script.google.com/macros/s/AKfycbyBn9QqVFkeNxr8dkjkwAPQIkRt7OhbqjXP8LxVc1lOsLZA_5Kn3K7JKfHitdCPYBzVgw/exec?user=${profile.userId}&name=${profile.displayName}`
    console.log(xurl);
    const records = await fetch(xurl);
    const data = await records.json();
