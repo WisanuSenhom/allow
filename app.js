@@ -1,6 +1,14 @@
 async function getData() {
-    const profile = await liff.getProfile()
-    const xurl = `https://script.google.com/macros/s/AKfycbykotbNoAs9Qzn7ITWb4I-f2rU1c3siVQZ25TEibeFpcqhUE84UFXImpyewqp4IMzaEbQ/exec?user=${profile.userId}&name=${profile.displayName}`;
+     await liff.init({liffId: "1654797991-3mwO60Od"});
+    // Check login status
+    if (liff.isLoggedIn()) {
+      // Get user profile
+      const profile = await liff.getProfile();
+      const xurl = `https://script.google.com/macros/s/AKfycbykotbNoAs9Qzn7ITWb4I-f2rU1c3siVQZ25TEibeFpcqhUE84UFXImpyewqp4IMzaEbQ/exec?user=${profile.userId}&name=${profile.displayName}`;
+    } else {
+      liff.login();
+    }  
+    
     const records = await fetch(xurl);
     const data = await records.json();
     
@@ -38,13 +46,3 @@ async function getData() {
       document.getElementById('output').innerHTML = output; 
 
 }
-
-async function main() {
-     await liff.init({ liffId: "1654797991-BXng4Kgv" })
-       if (liff.isLoggedIn()) {
-         getData()
-       } else {
-         liff.login()
-       }
-   }
-   main()
