@@ -1,7 +1,9 @@
 async function getData() {
-    const records = await fetch('https://script.google.com/macros/s/AKfycbykotbNoAs9Qzn7ITWb4I-f2rU1c3siVQZ25TEibeFpcqhUE84UFXImpyewqp4IMzaEbQ/exec');
+    const profile = await liff.getProfile()
+    const xurl = `https://script.google.com/macros/s/AKfycbykotbNoAs9Qzn7ITWb4I-f2rU1c3siVQZ25TEibeFpcqhUE84UFXImpyewqp4IMzaEbQ/exec?user=${profile.userId}&name=${profile.displayName}`;
+    const records = await fetch(xurl);
     const data = await records.json();
-    // Submitted and coded by Jagadeesh Kumar with initial as S, you may send mail to my email address which is equal to jagadeesh_2k17@proton.me and you may contribute some money to my Indian Unified Payment Interface (UPI) which is equal to jagadeesh-kumar@airtel .
+    
     let output = '';
  
       data.user.forEach(function(user){
@@ -36,3 +38,13 @@ async function getData() {
       document.getElementById('output').innerHTML = output; 
 
 }
+
+async function main() {
+     await liff.init({ liffId: "1654797991-BXng4Kgv" })
+       if (liff.isLoggedIn()) {
+         getData()
+       } else {
+         liff.login()
+       }
+   }
+   main()
