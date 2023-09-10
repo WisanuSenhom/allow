@@ -1,7 +1,7 @@
 async function getProfile() {
      const profile = await liff.getProfile()
      const xurl = `https://script.google.com/macros/s/AKfycbyBn9QqVFkeNxr8dkjkwAPQIkRt7OhbqjXP8LxVc1lOsLZA_5Kn3K7JKfHitdCPYBzVgw/exec?user=${profile.userId}&name=${profile.displayName}`;
-   console.log(xurl);
+   
    const records = await fetch(xurl);
    const data = await records.json();
    
@@ -30,12 +30,12 @@ async function getProfile() {
            </div>
          </ul>
        </div>
-         <div class="card shadow-sm">Datetimestamp : ${user.dupdate}
+         <div class="card shadow-sm">ส่งคำขอเมื่อวันที่ เวลา : ${user.dupdate}
          </div>
        </div>    
        `
      });
-     console.log(output);
+
      document.getElementById('output').innerHTML = output; 
 
 }
