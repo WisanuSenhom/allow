@@ -5,7 +5,53 @@ async function getProfile() {
    
    const records = await fetch(xurl);
    const data = await records.json();
-   
+   if (data.user === null || data.user === undefined ||data.user == 0 ) {
+    let timerInterval
+    Swal.fire({
+      icon: 'warning',
+      title: 'ไม่พบข้อมูล!',
+      html: 'กำลังปิดในอีก <b></b> มิลลิวินาที',
+      timer: 10000,
+      timerProgressBar: true,
+      didOpen: () => {
+        Swal.showLoading()
+        const b = Swal.getHtmlContainer().querySelector('b')
+        timerInterval = setInterval(() => {
+          b.textContent = Swal.getTimerLeft()
+        }, 100)
+      },
+      willClose: () => {
+        clearInterval(timerInterval)
+      }
+    }).then((result) => {
+      /* Read more about handling dismissals below */
+      if (result.dismiss === Swal.DismissReason.timer) {
+           liff.closeWindow();
+        window.close();
+       // console.log('I was closed by the timer')
+      }
+    });
+
+    document.getElementById("loading").style.display = "none";
+  } else {
+    
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+    
+    Toast.fire({
+      icon: 'success',
+      title: 'พบข้อมูล'
+    })
+  };
    let output = '';
 
      data.user.forEach(function(user){
