@@ -10,7 +10,7 @@ async function getProfile() {
     Swal.fire({
       icon: 'warning',
       title: 'ไม่พบข้อมูล!',
-      html: 'กำลังปิดในอีก <b></b> มิลลิวินาที',
+      html: 'กำลังนำพาไปหน้าบุคลากร <b></b> มิลลิวินาที',
       timer: 10000,
       timerProgressBar: true,
       didOpen: () => {
@@ -26,8 +26,7 @@ async function getProfile() {
     }).then((result) => {
       /* Read more about handling dismissals below */
       if (result.dismiss === Swal.DismissReason.timer) {
-           liff.closeWindow();
-        window.close();
+        location.replace("https://liff.line.me/1654797991-gPq2xR2n");
        // console.log('I was closed by the timer')
       }
     });
