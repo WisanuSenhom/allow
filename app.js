@@ -70,12 +70,13 @@ async function getProfile() {
            <li class="list-group-item">วันที่ เวลากลับ : ${user.outin}</li>
            <li class="list-group-item">ระยะห่างจากสำนักงาน : ${user.distance}</li>
            <li class="list-group-item">ชี้แจง : ${user.note}</li>
-           <div class="d-grid gap-2 d-md-block">
-           <a href="${user.y}" class="btn btn-success btn-lg" type="button">     อนุญาต     </a>
+           <div class="d-grid gap-3 d-md-block">
+           <a href="${user.y}" class="btn btn-success btn-lg" type="button">     อนุญาต    </a>
            <a href="${user.n}" class="btn btn-outline-danger disabled" type="button">ไม่อนุาต</a>
            </div>
          </ul>
        </div>
+         <div class="card shadow-sm">อาจใช้เวลานานให้การในการเป็นสถานะเป็นอนุญาตแล้ว เนื่องจากข้อมูลมีจำนวนมาก</div>
          <div class="card shadow-sm">ส่งคำขอเมื่อวันที่ เวลา : ${user.dupdate}
          </div>
        </div>    
