@@ -11,7 +11,7 @@ async function getProfile() {
       icon: 'warning',
       title: 'ไม่พบข้อมูล!',
       html: 'กำลังนำพาไปหน้าบุคลากร <b></b> มิลลิวินาที',
-      timer: 10000,
+      timer: 5000,
       timerProgressBar: true,
       didOpen: () => {
         Swal.showLoading()
