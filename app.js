@@ -76,7 +76,7 @@ async function getProfile() {
            </div>
          </ul>
        </div>
-         <div class="card shadow-sm">อาจใช้เวลานาน ในการเป็นสถานะเป็นอนุญาตแล้ว เนื่องจากข้อมูลมีจำนวนมาก</div>
+         <div class="card shadow-sm">อาจใช้เวลานาน ในการเป็นสถานะเป็นอนุญาตแล้ว เนื่องจากข้อมูลมีจำนวนมาก โปรดรอจนกว่าหน้านี้จะเปลี่ยน</div>
          <div class="card shadow-sm">ส่งคำขอเมื่อวันที่ เวลา : ${user.dupdate}
          </div>
        </div>    
@@ -85,6 +85,7 @@ async function getProfile() {
 
      document.getElementById('output').innerHTML = output; 
      document.getElementById("loading").style.display = "none";
+     
 }
 
 async function main() {
